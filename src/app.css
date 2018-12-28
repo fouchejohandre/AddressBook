@@ -1,0 +1,76 @@
+body{
+    background-image: url("Images/background-black.jpg");
+}
+
+.container-fluid{
+    padding: 0 20px !important;
+    padding-top: 5%;
+ }
+
+  .navbar-static-top{
+    background-color: gray;
+   top: 0;
+   position: relative;
+   width: 100%;
+   padding: 14px 16px;
+ }
+
+
+ .navbar-option{
+    background-color: gray;
+ }
+
+.classicText{
+    color: black;
+}
+
+.whiteText{
+    color: white;
+}
+
+.errorText{
+    color: red;
+}
+
+.profile-pic-lrg {
+    height: 400px;
+    width: 400px;
+}
+
+.profile-pic-sml {
+    height: 150px;
+    width: 150px;
+}
+
+.pnl-size {
+    text-align: center;
+    width: 50.1%;
+    position: relative;
+    left: 24.9%;
+}
+
+.loginInput{
+    width: 50%;
+}
+
+.img-logo{
+    height: 4%;
+    width: 4%;
+}
+
+.text-align-c{
+    text-align: center;
+}
+
+.text-align-l{
+    text-align: left;
+}
+
+.text-align-r{
+    text-align: right;
+}
+.image-thumb{
+    height: 50px;
+    width: 75px;
+}
+

@@ -1,0 +1,93 @@
+<address-book-header></address-book-header>
+<div>
+    <div class="input-group">
+                <span class="input-group-addon">Search</span> 
+        <input id="msg" type="text" class="form-control" name="msg" placeholder="Search for..." ng-model="$ctrl.query" ng-change="$ctrl.seachingFunc()"><br>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon">Sort By</span>
+        <select ng-model="$ctrl.orderProp" class="form-control">
+            <option value="FirstName">First Name</option>
+            <option value="LastName">Last Name</option>
+        </select>
+    </div>
+    <div class="whiteText" ng-show="$ctrl.seaching">
+        <h3>Searching for: {{$ctrl.query}}</h3>
+    </div>
+    <div ng-show="$ctrl.noContacts">
+        <div class="col-md-3"></div>
+        <h1 class="col-md-6 whiteText">No contacts to show. Add contacts <a ui-sref="address-add" ui-sref-active="active">here.</a></h1>
+    </div>
+    <uib-accordion>
+        <div uib-accordion-group class="panel-default pnl-size col-md-12"  ng-repeat="address in $ctrl.addresses | filter:$ctrl.query | orderBy:$ctrl.orderProp">
+            <uib-accordion-heading>
+                <div class="row">
+                <div class="col-md-4"></div>
+                <img ng-src="{{address.ImageUrl}}"  class="image-thumb col-md-1">
+                <h4 ng-click="$ctrl.showLessInfo()" class="col-md-3">{{address.FirstName}}{{' '}}{{address.LastName}}</h4>
+                <div class="cold-md-4"></div>
+                </div>
+            </uib-accordion-heading>
+            <div class="col-md-4">
+                <img ng-src="{{address.ImageUrl}}" class="col-md-12">
+            </div>
+            <div class="col-md-8">
+                <div ng-show="$ctrl.showLess">
+                    <div class="col-md-12">
+                        <label class="col-md-4 text-align-l">Name:</label><div class="col-md-8 text-align-l">{{' '}}{{address.FirstName}}{{' '}}{{address.LastName}}</div>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="col-md-4 text-align-l">Job:</label><div class="col-md-8 text-align-l">{{' '}}{{address.CompanyPosition}}{{' @ '}}{{address.CompanyName}}</div>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="col-md-4 text-align-l">&#128241;Mobile:</label><div class="col-md-8 text-align-l">{{' '}}{{address.Mobile}}</div>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="col-md-4 text-align-l">&#128222;Home Tel:</label><div class="col-md-8 text-align-l">{{' '}}{{address.HomeTel}}</div>
+                    </div>
+                    <button ng-click="$ctrl.showMoreInfo()" class="btn btn-info col-md-12">Show More Details</button>
+                    <button class="btn btn-primary col-md-12"><a ui-sref="address-details({addressId: '{{address.ContactId}}'})" ui-sref-active="active">&#9998;Edit Contact Details</a></button>
+                </div>
+
+                <div ng-show="$ctrl.showMore">
+                    <div class="col-md-12">
+                        <label class="col-md-4 text-align-l">Name:</label><div class="col-md-8 text-align-l">{{' '}}{{address.FirstName}}{{' '}}{{address.LastName}}</div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label class="col-md-4 text-align-l">Job:</label><div class="col-md-8 text-align-l">{{' '}}{{address.CompanyPosition}}{{' @ '}}{{address.CompanyName}}</div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label class="col-md-4 text-align-l">&#128241;Mobile:</label><div class="col-md-8 text-align-l">{{' '}}{{address.Mobile}}</div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label class="col-md-4 text-align-l">&#128222;Home Tel:</label><div class="col-md-8 text-align-l">{{' '}}{{address.HomeTel}}</div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label class="col-md-4 text-align-l">&#128222;Work Tel:</label><div class="col-md-8 text-align-l">{{' '}}{{address.WorkTel}}</div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label class="col-md-4 text-align-l">Home Email:</label><div class="col-md-8 text-align-l">{{' '}}{{address.HomeEmail}}</div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label class="col-md-4 text-align-l">Work Email:</label><div class="col-md-8 text-align-l">{{' '}}{{address.WorkEmail}}</div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label class="col-md-4 text-align-l">&#128439;Fax:</label><div class="col-md-8 text-align-l">{{' '}}{{address.Fax}}</div>
+                    </div>
+                    
+                    <div class="col-md-12">
+                        <label class="col-md-4 text-align-l">Address:</label><div class="col-md-8 text-align-l">{{' '}}{{address.HomeAddressNr}}{{' '}}{{address.HomeAddressStreet}}{{', '}}{{address.HomeAddressSuburb}}{{', '}}{{address.HomeAddressCity}}{{', '}}{{address.HomeAddressPostalCode}}{{', '}}{{address.HomeAddressAdditional}}</div>
+                    </div>
+                    <button ng-click="$ctrl.showLessInfo()" class="btn btn-info col-md-12">Show Less Details</button>
+                    <button class="btn btn-primary col-md-12"><a ui-sref="address-details({addressId: '{{address.ContactId}}'})" ui-sref-active="active">&#9998;Edit Contact Details</a></button>
+            </div>
+        </div>
+    </uib-accordion>
+</div>
