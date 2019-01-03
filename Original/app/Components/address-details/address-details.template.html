@@ -1,0 +1,49 @@
+<address-book-header></address-book-header>
+<div class="container-fluid">
+    <div class="col-md-3"></div>
+    <div class="whiteText col-md-6">
+        <h3 class="col-md-6" style="text-align: center;">Contact Information:</h3>
+        <div class="col-md-12">
+            <div>
+                <div ng-show="$ctrl.displayLarge" class="col-md-12">
+                    <h6>Remove mouse to revert image size</h6>
+                    <img ng-src="{{$ctrl.selectedAddress.ImageUrl}}"  ng-mouseleave="$ctrl.closeLargeDisplay()" class="profile-pic-lrg">
+                </div>
+                <div ng-show="$ctrl.displaySmall">
+                    <h6>Hover mouse over image to enlarge</h6>
+                    <img ng-src="{{$ctrl.selectedAddress.ImageUrl}}" ng-mouseover="$ctrl.enlargeDisplay()" class="profile-pic-sml">
+                </div>
+                <form action="http://localhost:8000/AddressBook/uploadImage.php" method="POST" enctype="multipart/form-data" id="uploadForm">
+                    <input type="file" name="myfile" id="fileToUpload" onchange="angular.element(this).scope().uploadFile(this.files)"/>
+                    <input type="submit" name="submit" value="Upload File Now" ng-click="$ctrl.imageUploaded()"/>
+                </form>
+            </div>
+            <label class="col-md-3">First Name:</label><input type="text" ng-model="$ctrl.selectedAddress.FirstName" class="classicText col-md-3">
+            <label class="col-md-3">Last Name:</label><input type="text" ng-model="$ctrl.selectedAddress.LastName" class="classicText col-md-3">
+            <label class="col-md-3">Job Title:</label><input type="text" ng-model="$ctrl.selectedAddress.CompanyPosition" class="classicText col-md-3">
+            <label class="col-md-3">Company Name:</label><input type="text" ng-model="$ctrl.selectedAddress.CompanyName" class="classicText col-md-3">
+            <label class="col-md-3">Mobile:</label><input type="text" ng-model="$ctrl.selectedAddress.Mobile" class="classicText col-md-3">
+            <label class="col-md-3">Fax:</label><input type="text" ng-model="$ctrl.selectedAddress.Fax" class="classicText col-md-3">
+            <label class="col-md-3">Home Tel:</label><input type="text" ng-model="$ctrl.selectedAddress.HomeTel" class="classicText col-md-3">
+            <label class="col-md-3">Work Tel:</label><input type="text" ng-model="$ctrl.selectedAddress.WorkTel" class="classicText col-md-3">
+            <label class="col-md-3">Home E-Mail:</label><input type="text" ng-model="$ctrl.selectedAddress.HomeEmail" class="classicText col-md-3">
+            <label class="col-md-3">Work E-Mail:</label><input type="text" ng-model="$ctrl.selectedAddress.WorkEmail" class="classicText col-md-3">
+            <h3 class="col-md-12" style="text-align: center;">Physical Address:</h3>
+            <label class="col-md-3">Street Number:</label><input type="text" ng-model="$ctrl.selectedAddress.HomeAddressNr" class="classicText col-md-3">
+            <label class="col-md-3">Street Name:</label><input type="text" ng-model="$ctrl.selectedAddress.HomeAddressStreet" class="classicText col-md-3">
+            <label class="col-md-3">Suburb:</label><input type="text" ng-model="$ctrl.selectedAddress.HomeAddressSuburb" class="classicText col-md-3">
+            <label class="col-md-3">City:</label><input type="text" ng-model="$ctrl.selectedAddress.HomeAddressCity" class="classicText col-md-3">
+            <label class="col-md-3">Postal Code:</label><input type="text" ng-model="$ctrl.selectedAddress.HomeAddressPostalCode" class="classicText col-md-3">
+            <label class="col-md-3">Additional Info:</label><input type="text" ng-model="$ctrl.selectedAddress.HomeAddressAdditional" class="classicText col-md-3">
+            <div class="col-md-12">
+                <div class="col-md-4"></div>
+                <button ng-click="$ctrl.updateAddress()" class="btn btn-primary col-md-4">&#9998;Update Contact Information</button>
+            </div>
+            <div class="col-md-12">
+                    <div class="col-md-4"></div>
+                <button ng-click="$ctrl.removeAddress()" class="btn btn-danger col-md-4">&#9998;Delete Contact</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3"></div>
+</div>

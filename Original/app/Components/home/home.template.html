@@ -1,0 +1,35 @@
+<div ng-show="$ctrl.loginReg">
+  <address-login-header></address-login-header>
+</div>
+<div ng-show="$ctrl.successfulLogin">
+  <address-book-header></address-book-header>
+</div>
+<div class="col-md-3"></div>
+<div ng-show="$ctrl.loginReg">
+  <div class="whiteText col-md-6">
+    <div class="col-md-12">
+      <div class="col-md-4"></div>
+      <div class="col-md-8">
+        <label>Username:</label>
+        <input class="classicText" type="text" ng-model="$ctrl.username"/>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="col-md-4"></div>
+      <div class="col-md-8">
+        <label>Password:</label>
+        <input class="classicText" type="password" ng-model="$ctrl.password"/>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="col-md-5"></div>
+      <div class="col-md-6">
+        <button class="btn btn-primary col-md-5" ng-click="$ctrl.login()">LOGIN</button>
+        <div ng-show="$ctrl.errorLogin">
+          <label class="errorText">Invalid username or Password. Please try again.</label>
+        </div>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-3"></div>

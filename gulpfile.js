@@ -58,6 +58,7 @@ var paths = {
   srcJS: 'src/**/*.js',
   srcJPG: 'src/**/*.jpg',
   srcPNG: 'src/**/*.png',
+  srcGIF: 'src/**/*.gif',
 
     tmp: 'tmp',
   tmpIndex: 'tmp/index.html',
@@ -65,13 +66,15 @@ var paths = {
   tmpJS: 'tmp/**/*.js',
   tmpJPG: 'tmp/**/*.jpg',
   tmpPNG: 'tmp/**/*.png',
+  tmpGIF: 'tmp/**/*.gif',
 
   dist: 'dist',
   distIndex: 'dist/index.html',
   distCSS: 'dist/**/*.css',
   distJS: 'dist/**/*.js',
   distJPG: 'dist/**/*.jpg',
-  distPNG: 'dist/**/*.png'
+  distPNG: 'dist/**/*.png',
+  distGIF: 'dist/**/*.gif',
 };
 
 
@@ -104,7 +107,12 @@ gulp.task('png', function ()
     return gulp.src(paths.srcPNG).pipe(gulp.dest(paths.tmp));
 });
 
-gulp.task('copy', gulp.series('html', 'css', 'js', 'jpg', 'png'));
+gulp.task('gif', function () 
+{
+    return gulp.src(paths.srcGIF).pipe(gulp.dest(paths.tmp));
+});
+
+gulp.task('copy', gulp.series('html', 'css', 'js', 'jpg', 'png', 'gif'));
 
 gulp.task('inject', gulp.series('copy', function () {
     var css = gulp.src(cssOrderTMP);
