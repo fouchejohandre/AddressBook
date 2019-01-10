@@ -11,8 +11,8 @@
     <div class="input-group">
         <span class="input-group-addon">Sort By</span>
         <select ng-model="$ctrl.orderProp" class="form-control">
-            <option value="MessageTimeStamp">Newest First</option>
-            <option value="-MessageTimeStamp">Oldest First</option>
+            <option value="-MessageTimeStamp">Newest First</option>
+            <option value="MessageTimeStamp">Oldest First</option>
             <option value="UserFromFirstName">Alphabetical A-Z (Name)</option>
             <option value="-UserFromFirstName">Alphabetical Z-A (Name)</option>
             <option value="UserFromLastName">Alphabetical A-Z (Surname)</option>
@@ -40,7 +40,14 @@
                         </div>
                     </div>
                 </uib-accordion-heading>
-                <h4 class="classicText">{{message.MessageContents}}</h4>
+                <div class="col-md-12">
+                    <h4 class="classicText">{{message.MessageContents}}</h4>
+                </div>
+                <div class="col-md-5"></div>
+                <div class="col-md-2">
+                    <a class="btn btn-danger" ng-click="$ctrl.deleteMessage(message.MessageId)">Delete Message</a>
+                </div>
+                <div class="col-md-5"></div>
             </div>
         </uib-accordion>
     </div>
@@ -65,7 +72,14 @@
                         </div>
                     </div>
                 </uib-accordion-heading>
-                <h4 class="classicText">{{message.MessageContents}}</h4>
+                <div class="col-md-12">
+                    <h4 class="classicText">{{message.MessageContents}}</h4>
+                </div>
+                <div class="col-md-5"></div>
+                <div class="col-md-2">
+                    <a class="btn btn-danger" ng-click="deleteMessage(message.MessageId)">Delete Message</a>
+                </div>
+                <div class="col-md-5"></div>
             </div>
         </uib-accordion>
     </div>
@@ -90,7 +104,14 @@
                         </div>
                     </div>
                 </uib-accordion-heading>
-                <h4 class="classicText">{{message.MessageContents}}</h4>
+                <div class="col-md-12">
+                    <h4 class="classicText">{{message.MessageContents}}</h4>
+                </div>
+                <div class="col-md-5"></div>
+                <div class="col-md-2">
+                    <a class="btn btn-danger" ng-click="deleteMessage(message.MessageId)">Delete Message</a>
+                </div>
+                <div class="col-md-5"></div>
             </div>
         </uib-accordion>
     </div>
