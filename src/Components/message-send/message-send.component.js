@@ -56,8 +56,6 @@ angular.
         },function (error){
     
       });
-      
-      alert("Message Sent!");
       $state.transitionTo('message-list');
       }
       }]

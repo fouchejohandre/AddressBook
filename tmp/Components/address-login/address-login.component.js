@@ -33,33 +33,9 @@ angular.
       //   console.log(self.result);
 
 
-      function canMakeWord (word) {
-        var blocks = ['B', 'O', 'X', 'K', 'D', 'Q', 'C', 'P', 'N', 'A', 'G', 'T', 'R', 'E', 'T', 'G', 'Q', 'D', 'F', 'S', 'J', 'W', 'H', 'U', 'V', 'I', 'A', 'N', 'O', 'B', 'E', 'R', 'F', 'S', 'L', 'Y', 'P', 'C', 'Z', 'M'];
-      
-        var wordArray = word.split('');
-      
-        var can;
-      
-        for(var i = 0; i < blocks.length; i++)
-        {
-          for(var x = 0; x < wordArray.length; x++)
-          {
-            if(wordArray[x] == blocks[i])
-            {
-              wordArray.splice(x, 1);
-            }
-          }
-        }
-      
-        if(wordArray.length > 0)
-        {
-          can = true;
-        }
-        else
-        {
-          can = false;
-        }
-        console.log(can);
+      var doorState = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+
+        console.log(doorState.length);
 
 
       self.$onInit = function(){
